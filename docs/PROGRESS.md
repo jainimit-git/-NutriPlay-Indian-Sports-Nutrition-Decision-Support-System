@@ -80,3 +80,25 @@ This log tracks every development phase, feature implementation, verification te
 - **Git Commit**: `feat: implement Indian food composition database and dietary constraint engine`
 - **Next Step**: Phase 5 — Multi-Objective Optimisation Engine & Daily Meal Plan Generator
 
+---
+
+## Phase 5 — Multi-Objective Optimisation Engine & Budget Engine
+- **Date**: 2026-10-19
+- **Status**: Completed
+- **Features Implemented**:
+  - Defined meal planning domain models in `lib/types/plan.ts` (PlannedFoodItem, PlannedMeal, FeasibilityAssessment, OptimizationMetrics, OneDayMealPlan)
+  - Created configurable multi-objective weights in `lib/optimisation/weights.ts` (`w1=0.45` Nutrition, `w2=0.25` Affordability, `w3=0.15` Variety, `w4=0.15` Timing Practicality)
+  - Implemented multi-objective deterministic optimizer in `lib/optimisation/mealOptimizer.ts`:
+    - Structured meal allocation (Breakfast, Mid-Morning, Lunch, Pre-Training, Post-Training, Dinner)
+    - Dynamic rest day adaptation (skips workout-specific slots on rest days)
+    - Strict non-misleading budget feasibility detection: flags `budget_infeasible` when cost > budget, providing explicit reason and calculating recommended minimum budget relaxation
+    - Variety penalty avoiding excessive ingredient repetition
+    - Mathematical composite score formulation (0–100)
+- **Tests Performed**:
+  - `tests/unit/optimisation.test.ts` (4 unit tests: feasible high-adequacy cricketer plan, budget infeasibility detection with relaxation recommendation, strict 100% Jain food compliance across all meals, and synthetic toy dataset deterministic optimization)
+- **Tests Passed**: 33 passed across 6 test suites
+- **Tests Failed**: 0
+- **Bugs Fixed**: Adjusted test case budget parameter to test optimal status vs budget overrun
+- **Git Commit**: `feat: implement multi-objective meal plan optimizer and budget feasibility engine`
+- **Next Step**: Phase 6 — Weather, Heat Index, Sweat Rate, and Hydration Engine
+
