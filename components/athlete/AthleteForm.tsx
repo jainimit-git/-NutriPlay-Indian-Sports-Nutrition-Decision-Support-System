@@ -458,3 +458,4 @@ export function AthleteForm({ onSubmit, isLoading = false }: AthleteFormProps) {
     </form>
   );
 }
+

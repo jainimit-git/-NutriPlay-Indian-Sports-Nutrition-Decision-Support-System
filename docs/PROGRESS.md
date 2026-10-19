@@ -41,3 +41,24 @@ This log tracks every development phase, feature implementation, verification te
 - **Git Commit**: `feat: implement athlete profile validation, sports registry, presets, and UI form`
 - **Next Step**: Phase 3 — Energy Requirement Engine (BMR, Mifflin-St Jeor, Activity, Training Load) and Nutrient Target Engine
 
+---
+
+## Phase 3 — Energy Requirement & Nutrient Target Engines
+- **Date**: 2026-10-19
+- **Status**: Completed
+- **Features Implemented**:
+  - Implemented Mifflin-St Jeor BMR equation with gender-specific offsets in `lib/nutrition/energyEngine.ts`
+  - Modeled baseline non-training Physical Activity Level (PAL = 1.35)
+  - Modeled Exercise Energy Expenditure (EEE) with sport-specific METs, training duration, and training intensity modifiers (0.85x to 1.30x)
+  - Computed Total Daily Energy Expenditure (TDEE) with target caloric bands and step-by-step mathematical explanations
+  - Created configurable nutritional reference layer `data/reference/nutritionReference.ts` based on ICMR-NIN 2020 RDA/EAR and ACSM guidelines
+  - Implemented `lib/nutrition/nutrientEngine.ts` for protein scaling (1.2–2.4 g/kg), carbohydrate periodization by training load (3.0–12.0 g/kg), endocrine-protective fat floor (20–35%), and ICMR micronutrients (Iron: 19mg male, 29mg female; Calcium: 1000mg; Sodium: 2000mg baseline)
+- **Tests Performed**:
+  - `tests/unit/energyEngine.test.ts` (5 tests covering male/female BMR, rest day zero EEE, MET scaling, and TDEE step explanations)
+  - `tests/unit/nutrientEngine.test.ts` (3 tests covering male strength athlete, female ICMR iron RDA, and training periodization)
+- **Tests Passed**: 22 passed across 4 test suites
+- **Tests Failed**: 0
+- **Bugs Fixed**: Resolved variable scope identifier for `carbohydrateCalories` during calculation
+- **Git Commit**: `feat: implement Mifflin-St Jeor energy engine and ICMR-NIN nutrient target engine`
+- **Next Step**: Phase 4 — Indian Food Composition Database (IFCT Schema, Sample Dataset, Dietary Filtering & Jain Rules)
+
