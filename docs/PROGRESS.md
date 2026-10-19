@@ -62,3 +62,21 @@ This log tracks every development phase, feature implementation, verification te
 - **Git Commit**: `feat: implement Mifflin-St Jeor energy engine and ICMR-NIN nutrient target engine`
 - **Next Step**: Phase 4 — Indian Food Composition Database (IFCT Schema, Sample Dataset, Dietary Filtering & Jain Rules)
 
+---
+
+## Phase 4 — Indian Food Composition Database & Dietary Constraint Engine
+- **Date**: 2026-10-19
+- **Status**: Completed
+- **Features Implemented**:
+  - Defined comprehensive FoodItem and MealSlot domain types in `lib/types/food.ts` with nutritional breakdown, regional cuisine, allergen markers, and Jain compliance flags
+  - Created authentic Indian Food Composition Database in `data/foods/indianFoodsDataset.ts` grounded in IFCT 2017 / ICMR-NIN with realistic urban/semi-urban market costs across 7 food categories
+  - Implemented deterministic dietary constraint filtering engine in `lib/nutrition/dietaryEngine.ts` strictly enforcing Vegetarian, Jain (no roots/tubers/onion/garlic/non-veg), Non-Vegetarian, Allergen exclusions (e.g. milk, peanuts), and meal-slot partitions
+  - Created external IFCT import validation helper (`validateAndImportFoodItem`) to allow future dataset extensions
+- **Tests Performed**:
+  - `tests/unit/dietaryFilter.test.ts` (7 tests covering vegetarian exclusion of poultry/eggs/meat, strict Jain compliance, non-vegetarian compatibility, milk & peanut allergen exclusions, meal slot partitioning, and external IFCT validator)
+- **Tests Passed**: 29 passed across 5 test files
+- **Tests Failed**: 0
+- **Bugs Fixed**: Corrected Jain food item containment assertion in unit tests
+- **Git Commit**: `feat: implement Indian food composition database and dietary constraint engine`
+- **Next Step**: Phase 5 — Multi-Objective Optimisation Engine & Daily Meal Plan Generator
+
