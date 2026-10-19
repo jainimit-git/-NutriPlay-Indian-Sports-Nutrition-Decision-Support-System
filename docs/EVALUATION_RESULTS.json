@@ -1,0 +1,344 @@
+{
+  "timestamp": "2026-10-19T16:46:29.365Z",
+  "summary": {
+    "cohortSize": 10,
+    "avgNutriplayCalAdequacy": 102,
+    "avgNutriplayProtAdequacy": 122,
+    "nutriplayBudgetAdherencePct": 20,
+    "avgOptimizationScore": 81,
+    "avgB1CalAdequacy": 42,
+    "avgB2CalAdequacy": 97
+  },
+  "individualResults": [
+    {
+      "athleteName": "Rohit (Cricket Bowler)",
+      "sport": "cricket",
+      "diet": "non_vegetarian",
+      "budgetInr": 550,
+      "nutriplay": {
+        "caloriesTarget": 3420,
+        "caloriesActual": 3421,
+        "calorieAdequacyPct": 100,
+        "proteinTargetG": 140,
+        "proteinActualG": 156.3,
+        "proteinAdequacyPct": 112,
+        "costInr": 502,
+        "budgetAdherence": true,
+        "optimizationScore": 88
+      },
+      "baseline1": {
+        "caloriesTarget": 2884,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 35,
+        "proteinTargetG": 78,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 3299,
+        "calorieAdequacyPct": 96,
+        "proteinActualG": 191.4,
+        "costInr": 368,
+        "budgetAdherence": true
+      }
+    },
+    {
+      "athleteName": "Pooja (Badminton Singles)",
+      "sport": "badminton",
+      "diet": "vegetarian",
+      "budgetInr": 400,
+      "nutriplay": {
+        "caloriesTarget": 2541,
+        "caloriesActual": 2877,
+        "calorieAdequacyPct": 113,
+        "proteinTargetG": 104,
+        "proteinActualG": 132.9,
+        "proteinAdequacyPct": 128,
+        "costInr": 462,
+        "budgetAdherence": false,
+        "optimizationScore": 80
+      },
+      "baseline1": {
+        "caloriesTarget": 2182,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 47,
+        "proteinTargetG": 58,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 2514,
+        "calorieAdequacyPct": 99,
+        "proteinActualG": 128.4,
+        "costInr": 256,
+        "budgetAdherence": true
+      }
+    },
+    {
+      "athleteName": "Manpreet (Kabaddi Raider)",
+      "sport": "kabaddi",
+      "diet": "vegetarian",
+      "budgetInr": 450,
+      "nutriplay": {
+        "caloriesTarget": 4572,
+        "caloriesActual": 3276,
+        "calorieAdequacyPct": 72,
+        "proteinTargetG": 180,
+        "proteinActualG": 143.5,
+        "proteinAdequacyPct": 80,
+        "costInr": 486,
+        "budgetAdherence": false,
+        "optimizationScore": 83
+      },
+      "baseline1": {
+        "caloriesTarget": 2892,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 35,
+        "proteinTargetG": 82,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 3979,
+        "calorieAdequacyPct": 87,
+        "proteinActualG": 220.2,
+        "costInr": 475,
+        "budgetAdherence": false
+      }
+    },
+    {
+      "athleteName": "Dhaval (Jain Distance Runner)",
+      "sport": "running",
+      "diet": "jain",
+      "budgetInr": 350,
+      "nutriplay": {
+        "caloriesTarget": 2901,
+        "caloriesActual": 3071,
+        "calorieAdequacyPct": 106,
+        "proteinTargetG": 95,
+        "proteinActualG": 140,
+        "proteinAdequacyPct": 147,
+        "costInr": 447,
+        "budgetAdherence": false,
+        "optimizationScore": 75
+      },
+      "baseline1": {
+        "caloriesTarget": 2552,
+        "caloriesActual": 1013,
+        "calorieAdequacyPct": 40,
+        "proteinTargetG": 63,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 2873,
+        "calorieAdequacyPct": 99,
+        "proteinActualG": 145.7,
+        "costInr": 381,
+        "budgetAdherence": false
+      }
+    },
+    {
+      "athleteName": "Gurpreet (Weightlifting Power)",
+      "sport": "weightlifting",
+      "diet": "non_vegetarian",
+      "budgetInr": 600,
+      "nutriplay": {
+        "caloriesTarget": 3480,
+        "caloriesActual": 3421,
+        "calorieAdequacyPct": 98,
+        "proteinTargetG": 187,
+        "proteinActualG": 156.3,
+        "proteinAdequacyPct": 84,
+        "costInr": 502,
+        "budgetAdherence": true,
+        "optimizationScore": 88
+      },
+      "baseline1": {
+        "caloriesTarget": 2908,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 35,
+        "proteinTargetG": 85,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 3394,
+        "calorieAdequacyPct": 98,
+        "proteinActualG": 196.9,
+        "costInr": 383,
+        "budgetAdherence": true
+      }
+    },
+    {
+      "athleteName": "Ananya (Field Hockey Midfielder)",
+      "sport": "field_hockey",
+      "diet": "vegetarian",
+      "budgetInr": 380,
+      "nutriplay": {
+        "caloriesTarget": 2572,
+        "caloriesActual": 2877,
+        "calorieAdequacyPct": 112,
+        "proteinTargetG": 97,
+        "proteinActualG": 132.9,
+        "proteinAdequacyPct": 137,
+        "costInr": 462,
+        "budgetAdherence": false,
+        "optimizationScore": 76
+      },
+      "baseline1": {
+        "caloriesTarget": 2066,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 50,
+        "proteinTargetG": 54,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 2514,
+        "calorieAdequacyPct": 98,
+        "proteinActualG": 128.4,
+        "costInr": 256,
+        "budgetAdherence": true
+      }
+    },
+    {
+      "athleteName": "Karthik (Football Forward)",
+      "sport": "football",
+      "diet": "non_vegetarian",
+      "budgetInr": 500,
+      "nutriplay": {
+        "caloriesTarget": 3500,
+        "caloriesActual": 3421,
+        "calorieAdequacyPct": 98,
+        "proteinTargetG": 128,
+        "proteinActualG": 156.3,
+        "proteinAdequacyPct": 122,
+        "costInr": 502,
+        "budgetAdherence": false,
+        "optimizationScore": 91
+      },
+      "baseline1": {
+        "caloriesTarget": 2728,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 38,
+        "proteinTargetG": 71,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 3394,
+        "calorieAdequacyPct": 97,
+        "proteinActualG": 196.9,
+        "costInr": 383,
+        "budgetAdherence": true
+      }
+    },
+    {
+      "athleteName": "Sneha (Competitive Swimmer)",
+      "sport": "swimming",
+      "diet": "vegetarian",
+      "budgetInr": 420,
+      "nutriplay": {
+        "caloriesTarget": 3034,
+        "caloriesActual": 3276,
+        "calorieAdequacyPct": 108,
+        "proteinTargetG": 110,
+        "proteinActualG": 143.5,
+        "proteinAdequacyPct": 130,
+        "costInr": 486,
+        "budgetAdherence": false,
+        "optimizationScore": 81
+      },
+      "baseline1": {
+        "caloriesTarget": 2266,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 45,
+        "proteinTargetG": 61,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 3024,
+        "calorieAdequacyPct": 100,
+        "proteinActualG": 172.9,
+        "costInr": 323,
+        "budgetAdherence": true
+      }
+    },
+    {
+      "athleteName": "Harish (Road Cyclist)",
+      "sport": "cycling",
+      "diet": "vegetarian",
+      "budgetInr": 480,
+      "nutriplay": {
+        "caloriesTarget": 4380,
+        "caloriesActual": 3276,
+        "calorieAdequacyPct": 75,
+        "proteinTargetG": 125,
+        "proteinActualG": 143.5,
+        "proteinAdequacyPct": 115,
+        "costInr": 486,
+        "budgetAdherence": false,
+        "optimizationScore": 87
+      },
+      "baseline1": {
+        "caloriesTarget": 2598,
+        "caloriesActual": 1023,
+        "calorieAdequacyPct": 39,
+        "proteinTargetG": 66,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 3979,
+        "calorieAdequacyPct": 91,
+        "proteinActualG": 220.2,
+        "costInr": 475,
+        "budgetAdherence": true
+      }
+    },
+    {
+      "athleteName": "Sunita (Jain Track Athlete)",
+      "sport": "general_athletics",
+      "diet": "jain",
+      "budgetInr": 320,
+      "nutriplay": {
+        "caloriesTarget": 2009,
+        "caloriesActual": 2672,
+        "calorieAdequacyPct": 133,
+        "proteinTargetG": 80,
+        "proteinActualG": 129.4,
+        "proteinAdequacyPct": 162,
+        "costInr": 423,
+        "budgetAdherence": false,
+        "optimizationScore": 64
+      },
+      "baseline1": {
+        "caloriesTarget": 1966,
+        "caloriesActual": 1013,
+        "calorieAdequacyPct": 52,
+        "proteinTargetG": 50,
+        "proteinActualG": 45,
+        "costInr": 86,
+        "budgetAdherence": true
+      },
+      "baseline2": {
+        "caloriesActual": 1999,
+        "calorieAdequacyPct": 100,
+        "proteinActualG": 114.2,
+        "costInr": 227,
+        "budgetAdherence": true
+      }
+    }
+  ]
+}

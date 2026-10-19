@@ -164,3 +164,23 @@ This log tracks every development phase, feature implementation, verification te
 - **Git Commit**: `feat: implement dashboard UI, data visualisations, /api/plan route, and end-to-end recommendation flow`
 - **Next Step**: Phase 9 — Research Evaluation Pipeline, Baseline Comparisons, and Ablation Study Engine
 
+---
+
+## Phase 9 — Research Evaluation Pipeline & Baseline Comparison
+- **Date**: 2026-10-19
+- **Status**: Completed
+- **Features Implemented**:
+  - Implemented Baseline 1 in `lib/evaluation/baselines.ts`: generic clinical nutrition using static Mifflin-St Jeor + flat PAL (1.60) and flat 1.0 g/kg protein
+  - Implemented Baseline 2 in `lib/evaluation/baselines.ts`: single-objective greedy rule-based meal planner without multi-objective optimization or budget awareness
+  - Built systematic ablation study engine in `lib/evaluation/ablationEngine.ts` supporting `full`, `no_weather`, and `no_training_load` modes
+  - Created calibrated benchmark cohort of 10 realistic Indian athletes in `lib/evaluation/syntheticCohorts.ts` covering multiple sports, genders, diets, and regional climates
+  - Developed executable research runner `scripts/runEvaluation.ts` (`npm run evaluate`) that runs all benchmarks and exports machine-readable findings to `docs/EVALUATION_RESULTS.json` and `docs/ABLATION_RESULTS.csv`
+- **Tests Performed**:
+  - `tests/unit/evaluation.test.ts` (4 unit tests verifying Baseline 1, Baseline 2, weather sensitivity, and training load sensitivity)
+  - Full execution of `npm run evaluate` across the synthetic athlete cohort
+- **Tests Passed**: 54 passed across 11 test suites
+- **Tests Failed**: 0
+- **Bugs Fixed**: Renamed internal parameter identifiers in baseline functions
+- **Git Commit**: `feat: implement research evaluation pipeline, baselines, and ablation study engine`
+- **Next Step**: Phase 10 — Academic Documentation (README, METHODOLOGY, FORMULAS, OPTIMISATION, DATA, SAFETY, TESTING, EVALUATION) & Final QA
+

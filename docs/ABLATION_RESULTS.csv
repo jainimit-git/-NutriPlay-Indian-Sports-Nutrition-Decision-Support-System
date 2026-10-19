@@ -1,0 +1,31 @@
+Athlete,Mode,TDEE_kcal,Carbs_g,Protein_g,Fluid_L,Heat_Adj_L,Cost_INR,Budget_Met,Score
+"Rohit (Cricket Bowler)","full",3420,544,140,7.8,0.6,502,true,88
+"Rohit (Cricket Bowler)","no_weather",3420,544,140,6.1,0,502,true,88
+"Rohit (Cricket Bowler)","no_training_load",2433,301,94,3.3,0.6,354,true,92
+"Pooja (Badminton Singles)","full",2541,404,104,4.7,0.4,462,false,80
+"Pooja (Badminton Singles)","no_weather",2541,404,104,3.9,0,462,false,80
+"Pooja (Badminton Singles)","no_training_load",1841,229,70,2.4,0.4,354,true,82
+"Manpreet (Kabaddi Raider)","full",4572,735,180,10.9,0.6,486,false,83
+"Manpreet (Kabaddi Raider)","no_weather",4572,735,180,8.4,0,486,false,83
+"Manpreet (Kabaddi Raider)","no_training_load",2440,290,107,3.5,0.6,354,true,93
+"Dhaval (Jain Distance Runner)","full",2901,485,95,4.5,0.6,447,false,75
+"Dhaval (Jain Distance Runner)","no_weather",2901,485,95,3.5,0,447,false,75
+"Dhaval (Jain Distance Runner)","no_training_load",2153,274,76,2.8,0.6,315,true,89
+"Gurpreet (Weightlifting Power)","full",3480,509,187,7.4,0.4,502,true,88
+"Gurpreet (Weightlifting Power)","no_weather",3480,509,187,6.2,0,502,true,88
+"Gurpreet (Weightlifting Power)","no_training_load",2454,280,119,3.4,0.4,354,true,92
+"Ananya (Field Hockey Midfielder)","full",2572,418,97,4.3,0.2,462,false,76
+"Ananya (Field Hockey Midfielder)","no_weather",2572,418,97,3.8,0,462,false,76
+"Ananya (Field Hockey Midfielder)","no_training_load",1744,219,65,2.1,0.2,354,true,78
+"Karthik (Football Forward)","full",3500,572,128,6.9,0.6,502,false,91
+"Karthik (Football Forward)","no_weather",3500,572,128,5.3,0,502,false,91
+"Karthik (Football Forward)","no_training_load",2302,289,85,3.1,0.6,354,true,92
+"Sneha (Competitive Swimmer)","full",3034,497,110,6.2,0.6,486,false,81
+"Sneha (Competitive Swimmer)","no_weather",3034,497,110,4.7,0,486,false,81
+"Sneha (Competitive Swimmer)","no_training_load",1912,244,73,2.7,0.6,354,true,84
+"Harish (Road Cyclist)","full",4380,751,125,9.3,0.4,486,false,87
+"Harish (Road Cyclist)","no_weather",4380,751,125,7.6,0,486,false,87
+"Harish (Road Cyclist)","no_training_load",2192,277,79,2.7,0.4,354,true,90
+"Sunita (Jain Track Athlete)","full",2009,322,80,3.2,0.4,423,false,64
+"Sunita (Jain Track Athlete)","no_weather",2009,322,80,2.6,0,423,false,64
+"Sunita (Jain Track Athlete)","no_training_load",1659,210,60,2.2,0.4,315,true,79
