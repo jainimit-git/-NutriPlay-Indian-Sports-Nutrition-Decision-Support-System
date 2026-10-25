@@ -211,3 +211,37 @@ This log tracks every development phase, feature implementation, verification te
 - **Git Commit**: `docs: add comprehensive academic documentation, architecture, formulas, and evaluation guides`
 - **Next Step**: Project Completed & Verified against Final Acceptance Criteria
 
+---
+
+## Phase 11 — Account-Based Athlete Onboarding & Personalised Sessions
+- **Date**: 2026-10-25
+- **Status**: Implemented; verified with tests, production build, and live API smoke test. Not production-ready for public sensitive-data use; deployment limits documented.
+- **Implementation Plan**:
+  - Reuse the existing Next.js App Router, Zod validation, sports/nutrition/hydration engines, and dashboard.
+  - Add a built-in, single-instance persistent account store because no authentication provider or database existed; keep account credentials, profiles, and revocable sessions in separate records.
+  - Gate the home workflow behind server-verified account access, profile onboarding/editing, and current-session input.
+  - Add extensible sport names with an explicit generic fallback; retain and de-gate the four demo presets.
+- **Features Implemented**:
+  - Email/password registration, duplicate-email rejection, generic invalid-login response, scrypt password hashes, signed seven-day HttpOnly/SameSite sessions, server-side session revocation, and same-origin mutation checks.
+  - Account-linked profile persistence, ownership derived from the signed session, profile timestamps/upsert, onboarding, prefilled profile editing, and session-only plan inputs.
+  - Authenticated server plan route combines stored personal measurements/diet constraints with the submitted sport, workload, date, budget, and location before calling existing calculation engines.
+  - Added vegan filtering for tagged dataset items, unlisted-sport fallback, session/date/type/timing and dataset/weather assumption warnings, and no-store API responses.
+  - Added local setup and deployment caveats in `docs/ACCOUNT_SETUP.md`; created `PROJECT_STATUS.md` handoff.
+- **Tests and Checks**:
+  - Baseline: `npm test` — 54 tests passed.
+  - Final: `npx vitest run --pool forks --maxWorkers=1 --minWorkers=1` — 63 tests passed across 13 files.
+  - `npm run typecheck` — passed.
+  - `npm run build` — passed; Next.js reported the auth/profile/plan API routes as dynamic.
+  - Production HTTP smoke test — registration 200, profile save/load 200, plan generation 200 using saved weight and unlisted sport, no-store header verified, logout 200, session invalid after logout.
+  - `npm run lint` — blocked because no ESLint config exists and the script prompts interactively. `next build` performed its built-in lint/type validity step successfully.
+  - Browser-control client disconnected during the post-fix interactive walkthrough. An initial page inspection caught and led to a fix for conditional React hook ordering; route-level workflow integration and the production HTTP workflow passed.
+- **Known Limitations**:
+  - JSON file store is single-instance; no cross-process locking, encryption at rest, rate limiting, or operational backups. Do not expose publicly as a production service for sensitive athlete data.
+  - Match/practice/recovery and clock-time session details do not have evidence-backed calculation factors in the current engines; limitations are surfaced rather than fabricated.
+  - Weather for a non-current session date is not forecast; allergen/vegan data tags cannot verify undeclared ingredients or cross-contact.
+  - The current physiological calculation requires an explicit male/female input; no value is inferred.
+- **Files Changed**:
+  - Account APIs and server services: `app/api/auth/route.ts`, `app/api/profile/route.ts`, `app/api/plan/route.ts`, `lib/auth/accountStore.ts`, `lib/auth/http.ts`.
+  - Workflow and domain integration: `app/page.tsx`, `components/account/AccountWorkflow.tsx`, `components/dashboard/AthleteSummaryCard.tsx`, `lib/types/athlete.ts`, `lib/types/food.ts`, `lib/validation/athleteSchema.ts`, `data/reference/sportsData.ts`, `lib/nutrition/energyEngine.ts`, `lib/nutrition/nutrientEngine.ts`, `lib/nutrition/dietaryEngine.ts`, `lib/recommendations/recommendationService.ts`.
+  - Configuration, documentation, and tests: `.env.example`, `.gitignore`, `docs/ACCOUNT_SETUP.md`, `PROJECT_STATUS.md`, this log, `tests/unit/accountStore.test.ts`, `tests/integration/accountWorkflow.test.ts`, `tests/unit/athleteValidation.test.ts`, `tests/unit/dietaryFilter.test.ts`, `tests/unit/energyEngine.test.ts`.
+- **Next Step**: For public production use, migrate to managed persistence/authentication and complete deployment-specific security, privacy, backup, and operational reviews.

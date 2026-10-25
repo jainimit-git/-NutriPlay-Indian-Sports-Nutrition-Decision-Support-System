@@ -25,11 +25,12 @@ interface SessionUser {
   hasProfile: boolean;
 }
 
-type ProfileDraft = Omit<ValidatedAthletePersonalProfile, "age" | "sex" | "heightCm" | "weightKg"> & {
+type ProfileDraft = Omit<ValidatedAthletePersonalProfile, "age" | "sex" | "heightCm" | "weightKg" | "dietaryPreference"> & {
   age: number | "";
   sex: "" | "male" | "female";
   heightCm: number | "";
   weightKg: number | "";
+  dietaryPreference: DietaryPreference | "";
 };
 
 interface SavedProfile {
@@ -318,6 +319,7 @@ function ProfileEditor({
           <label className="text-sm font-medium text-slate-700 sm:col-span-2">
             Dietary preference
             <select value={profile.dietaryPreference} onChange={(event) => change("dietaryPreference", event.target.value as DietaryPreference)} className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2">
+              <option value="">Select your dietary preference</option>
               <option value="vegetarian">Vegetarian</option>
               <option value="non_vegetarian">Non-vegetarian</option>
               <option value="vegan">Vegan</option>
@@ -605,7 +607,7 @@ export function AccountWorkflow() {
       sex: "",
       heightCm: "",
       weightKg: "",
-      dietaryPreference: "vegetarian",
+      dietaryPreference: "",
       dietaryExclusions: [],
     },
     [profile, user?.name]

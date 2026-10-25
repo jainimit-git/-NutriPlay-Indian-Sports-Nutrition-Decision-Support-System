@@ -30,7 +30,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const body = await req.json();
+    let body: unknown;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json(
+        { success: false, error: "Request body must contain valid JSON." },
+        { status: 400, headers: noStoreHeaders }
+      );
+    }
     const parseResult = trainingSessionSchema.safeParse(body);
 
     if (!parseResult.success) {

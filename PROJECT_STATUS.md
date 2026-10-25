@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Phase 5 — Account-based athlete workflow implemented; final verification and hardening in progress.
+Phase 5 — Account-based athlete workflow implemented and verified for the current single-instance file-backed deployment path.
 
 ## Implementation and verification
 
@@ -10,7 +10,9 @@ Phase 5 — Account-based athlete workflow implemented; final verification and h
 - Added persistent account-linked athlete profiles, ownership-derived profile reads/writes, onboarding, profile editing, and timestamped updates.
 - Replaced the four-preset-only entry flow with account and profile onboarding plus session-only plan inputs. The existing demo presets remain in the repository.
 - Connected authenticated session data and saved profile values to the existing energy, meal, hydration, weather, and safety engines. Unknown sports use an explicit generic fallback; vegan filtering and input/data-limit warnings were added.
-- Verified: baseline tests before implementation passed (54 tests); isolated account-store tests passed (4 tests); post-change `npm run typecheck` passed; the full post-change suite passed (61 tests across 12 files). Production build, lint, and interactive browser flow have not yet been verified.
+- Verified: baseline suite passed (54 tests); final full suite passed (63 tests across 13 files); `npm run typecheck` passed; `npm run build` passed; a live production-server HTTP smoke test completed registration, profile save/reload, custom-sport plan generation with saved profile weight, and session revocation on logout.
+- Browser review opened the auth page and exposed/fixed a hook-order error. The browser-control client disconnected before a complete interactive UI walkthrough; the route-level authenticated workflow integration test and live production HTTP flow passed.
+- Standalone `npm run lint` is blocked because the repository has no ESLint configuration and `next lint` opens an interactive setup prompt. The production build completed Next.js's built-in lint/type validity step.
 
 ## Changed files and rationale
 
@@ -38,4 +40,4 @@ Set `NUTRIPLAY_SESSION_SECRET` to a generated random value of at least 32 bytes.
 
 ## Exact next task
 
-Run lint and production build, then exercise the authenticated browser flow with a temporary local data directory and secret. Update this file and `docs/PROGRESS.md` with the actual outcomes before committing only feature-owned files.
+For public production use, replace the local JSON store with managed transactional persistence/auth infrastructure, configure encryption, rate limits, backups, and conduct a security review. Until then, keep this implementation on a trusted single-instance deployment only. The remaining calculation limitations are documented in [Account setup and deployment limits](./docs/ACCOUNT_SETUP.md).

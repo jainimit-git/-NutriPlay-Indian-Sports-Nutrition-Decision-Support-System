@@ -39,7 +39,13 @@ export async function PUT(request: NextRequest) {
     if (!account) {
       return NextResponse.json({ error: "Sign in to save your profile." }, { status: 401, headers: noStoreHeaders });
     }
-    const parsed = athletePersonalProfileSchema.safeParse(await request.json());
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Request body must contain valid JSON." }, { status: 400, headers: noStoreHeaders });
+    }
+    const parsed = athletePersonalProfileSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
         { error: "Check the highlighted profile fields and try again.", details: parsed.error.flatten() },

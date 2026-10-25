@@ -75,8 +75,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Request origin could not be verified." }, { status: 403 });
   }
 
+  let body: unknown;
   try {
-    const body: unknown = await request.json();
+    body = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Request body must contain valid JSON." },
+      { status: 400, headers: noStoreHeaders() }
+    );
+  }
+
+  try {
     const parsed = authInputSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
