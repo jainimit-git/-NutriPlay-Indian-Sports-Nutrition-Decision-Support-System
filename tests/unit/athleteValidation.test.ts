@@ -102,9 +102,13 @@ describe("Athlete Profile Validation Suite", () => {
     expect(result.success).toBe(false);
   });
 
-  it("rejects unsupported sport type", () => {
-    const invalid = { ...validProfile, sport: "curling" as any };
-    const result = athleteProfileSchema.safeParse(invalid);
+  it("accepts an unlisted sport for the generic session-calculation fallback", () => {
+    const result = athleteProfileSchema.safeParse({ ...validProfile, sport: "curling" });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a missing sport name", () => {
+    const result = athleteProfileSchema.safeParse({ ...validProfile, sport: "" });
     expect(result.success).toBe(false);
   });
 
@@ -132,4 +136,3 @@ describe("Athlete Profile Validation Suite", () => {
     expect(result.success).toBe(false);
   });
 });
-

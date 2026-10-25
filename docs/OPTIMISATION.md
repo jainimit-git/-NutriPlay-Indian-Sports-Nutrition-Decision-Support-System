@@ -62,3 +62,4 @@ If an athlete specifies an artificially low budget (e.g. ₹90/day) that cannot 
    $$\text{Budget}_{\text{min}} = \lceil \text{Cost}_{\text{actual}} \times 1.05 \rceil$$
 4. It presents an actionable advisory:
    *"Your daily budget of ₹X is insufficient. Increasing your budget to at least ₹Y will satisfy both macronutrient targets and dietary constraints."*
+

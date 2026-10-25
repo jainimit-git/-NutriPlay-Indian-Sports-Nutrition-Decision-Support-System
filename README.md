@@ -182,3 +182,4 @@ Automated benchmark across 10 synthetic athlete profiles against Baseline 1 (Gen
 
 ## License
 MIT License. Copyright &copy; 2026 Nimit Jain.
+

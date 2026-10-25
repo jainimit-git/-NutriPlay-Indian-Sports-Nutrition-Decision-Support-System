@@ -53,3 +53,4 @@ Systematic module disabling confirms the individual necessity of each subsystem:
 2. **Training Load Sensitivity**: Disabling training-load periodization dropped energy targets by **800 to 1,600 kcal/day** and carbohydrate targets by **150 to 350 g/day**, demonstrating that NutriPlay sensitively periods athletic fuel based on session load.
 
 Raw results are machine-readable in `docs/EVALUATION_RESULTS.json` and `docs/ABLATION_RESULTS.csv`.
+

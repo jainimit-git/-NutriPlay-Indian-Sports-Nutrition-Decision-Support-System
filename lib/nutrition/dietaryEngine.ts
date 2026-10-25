@@ -21,6 +21,17 @@ export function filterFoodsByConstraints(
       if (!food.isJain || !food.isVegetarian || food.isNonVegetarian) {
         return false;
       }
+    } else if (criteria.dietaryPreference === "vegan") {
+      const allergens = food.allergens.map((allergen) => allergen.toLowerCase());
+      if (
+        !food.isVegetarian ||
+        food.isNonVegetarian ||
+        food.category === "dairy" ||
+        allergens.includes("milk") ||
+        allergens.includes("egg")
+      ) {
+        return false;
+      }
     }
     // If "non_vegetarian", both vegetarian and non-vegetarian foods are permissible
 
@@ -130,4 +141,3 @@ export function validateAndImportFoodItem(item: Partial<FoodItem>): { success: b
 
   return { success: true, item: validItem };
 }
-

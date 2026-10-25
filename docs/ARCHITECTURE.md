@@ -95,3 +95,4 @@ docs/                     # Comprehensive scientific and architectural documenta
 2. **Strict Non-Diagnostic Ethics**: The system serves as a decision-support and educational tool, explicitly displaying non-diagnostic safety screens and requiring clinical consultation for clinical conditions.
 3. **Graceful Fallbacks**: The server-side weather service guarantees application continuity even under complete external API outages or missing environment keys by utilizing an Indian regional climatological baseline.
 4. **Transparency & Viva Readiness**: Every calculated recommendation contains human-readable rationale, mathematical formulas, and input-output mappings for academic defense.
+

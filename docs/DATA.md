@@ -53,3 +53,4 @@ NutriPlay rigorously documents and implements traditional Jain dietary restricti
 ## 3. Extensible Import Pipeline
 
 NutriPlay provides `validateAndImportFoodItem(rawItem)` to allow sports nutrition departments and dietitians to ingest new food items into the system with automated data validation and bounds checking.
+

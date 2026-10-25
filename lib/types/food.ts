@@ -59,9 +59,8 @@ export interface FoodItem {
 }
 
 export interface FoodFilterCriteria {
-  dietaryPreference: "vegetarian" | "non_vegetarian" | "jain";
+  dietaryPreference: "vegetarian" | "non_vegetarian" | "vegan" | "jain";
   excludedAllergens?: string[];
   mealSlot?: MealSlot;
   maxCostPerServingInr?: number;
 }
-

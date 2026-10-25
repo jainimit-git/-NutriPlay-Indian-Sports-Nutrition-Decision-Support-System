@@ -73,5 +73,26 @@ describe("Energy Requirement Engine Unit Tests", () => {
     expect(result.explanations[0].step).toContain("Basal Metabolic Rate");
     expect(result.explanations[3].step).toContain("Total Daily Energy Expenditure");
   });
-});
 
+  it("uses an explicit generic sport estimate for unlisted sports and retains session load", () => {
+    const profile: AthleteProfile = {
+      name: "Custom sport athlete",
+      age: 24,
+      sex: "male",
+      heightCm: 180,
+      weightKg: 75,
+      sport: "squash",
+      trainingDurationMinutes: 90,
+      trainingIntensity: "high",
+      trainingFrequencyDaysPerWeek: 6,
+      dietaryPreference: "vegetarian",
+      dailyBudgetInr: 400,
+      location: "Delhi",
+      dietaryExclusions: [],
+    };
+
+    const result = calculateEnergyRequirement(profile);
+    expect(result.sportMetValue).toBe(5);
+    expect(result.exerciseEnergyExpenditureKcal).toBe(647);
+  });
+});

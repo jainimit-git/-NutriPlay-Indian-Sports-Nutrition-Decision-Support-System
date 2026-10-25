@@ -3,7 +3,7 @@
 import React from "react";
 import { AthleteProfile } from "@/lib/types/athlete";
 import { WeatherData } from "@/lib/types/weather";
-import { SPORTS_REGISTRY } from "@/data/reference/sportsData";
+import { getSportMetadata } from "@/data/reference/sportsData";
 import { User, Activity, MapPin, CloudSun, ShieldCheck, IndianRupee } from "lucide-react";
 
 interface AthleteSummaryCardProps {
@@ -12,7 +12,7 @@ interface AthleteSummaryCardProps {
 }
 
 export function AthleteSummaryCard({ athlete, weather }: AthleteSummaryCardProps) {
-  const sportMeta = SPORTS_REGISTRY[athlete.sport] || SPORTS_REGISTRY.general_athletics;
+  const sportMeta = getSportMetadata(athlete.sport);
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
@@ -52,10 +52,17 @@ export function AthleteSummaryCard({ athlete, weather }: AthleteSummaryCardProps
             <Activity className="w-3.5 h-3.5 text-emerald-600" />
             Sport & Discipline
           </div>
-          <div className="text-sm font-bold text-slate-800 mt-1">{sportMeta.label}</div>
+          <div className="text-sm font-bold text-slate-800 mt-1">{sportMeta?.label || athlete.sport}</div>
           <div className="text-[11px] text-slate-500 capitalize">
             {athlete.trainingIntensity} load ({athlete.trainingDurationMinutes} min)
+            {!sportMeta && " · generic sport estimate"}
           </div>
+          {athlete.trainingType && (
+            <div className="text-[11px] text-slate-500">
+              {athlete.trainingType.replace("_", " ")}
+              {athlete.trainingDate ? ` · ${athlete.trainingDate}` : ""}
+            </div>
+          )}
         </div>
 
         <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
@@ -96,4 +103,3 @@ export function AthleteSummaryCard({ athlete, weather }: AthleteSummaryCardProps
     </div>
   );
 }
-

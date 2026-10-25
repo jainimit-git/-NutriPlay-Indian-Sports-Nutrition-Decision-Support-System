@@ -127,3 +127,4 @@ $$\text{EA} = \frac{\text{Energy Intake (kcal)} - \text{EEE (kcal)}}{\text{Fat-F
 - $\text{EA} \ge 45\text{ kcal/kg FFM/day}$: **Optimal**
 - $30 \le \text{EA} < 45\text{ kcal/kg FFM/day}$: **Sub-Optimal**
 - $\text{EA} < 30\text{ kcal/kg FFM/day}$: **High Risk of Low Energy Availability (LEA) / RED-S**
+

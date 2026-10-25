@@ -59,6 +59,21 @@ describe("Dietary Constraint Engine Unit Tests", () => {
     expect(hasEggs).toBe(true);
   });
 
+  it("excludes tagged animal foods, dairy, and eggs for vegan plans", () => {
+    const veganFoods = filterFoodsByConstraints(INDIAN_FOOD_DATABASE, {
+      dietaryPreference: "vegan",
+    });
+
+    expect(veganFoods.length).toBeGreaterThan(0);
+    for (const food of veganFoods) {
+      expect(food.isVegetarian).toBe(true);
+      expect(food.isNonVegetarian).toBe(false);
+      expect(food.category).not.toBe("dairy");
+      expect(food.allergens.map((allergen) => allergen.toLowerCase())).not.toContain("milk");
+      expect(food.allergens.map((allergen) => allergen.toLowerCase())).not.toContain("egg");
+    }
+  });
+
   it("completely excludes dairy when 'milk' allergen is specified", () => {
     const lactoseFreeFoods = filterFoodsByConstraints(INDIAN_FOOD_DATABASE, {
       dietaryPreference: "vegetarian",
@@ -127,4 +142,3 @@ describe("Dietary Constraint Engine Unit Tests", () => {
     expect(invalidResult.success).toBe(false);
   });
 });
-

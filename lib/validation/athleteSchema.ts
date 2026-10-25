@@ -29,9 +29,8 @@ export const sweatRateMeasuredInputSchema = z.object({
   }
 );
 
-export const athleteProfileSchema = z.object({
-  id: z.string().optional(),
-  name: z.string().trim().min(2, "Name must be at least 2 characters").max(60).optional(),
+export const athletePersonalProfileSchema = z.object({
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(60),
   age: z
     .number({ invalid_type_error: "Age must be a valid number" })
     .int("Age must be an integer")
@@ -48,24 +47,14 @@ export const athleteProfileSchema = z.object({
     .number({ invalid_type_error: "Weight must be a number" })
     .min(35, "Weight must be at least 35 kg")
     .max(200, "Weight cannot exceed 200 kg"),
-  sport: z.enum(
-    [
-      "cricket",
-      "badminton",
-      "field_hockey",
-      "kabaddi",
-      "running",
-      "weightlifting",
-      "football",
-      "cycling",
-      "wrestling",
-      "swimming",
-      "general_athletics",
-    ],
-    {
-      errorMap: () => ({ message: "Please select a supported sport" }),
-    }
-  ),
+  dietaryPreference: z.enum(["vegetarian", "non_vegetarian", "vegan", "jain"], {
+    errorMap: () => ({ message: "Select a supported dietary preference" }),
+  }),
+  dietaryExclusions: z.array(z.string().trim().min(1).max(40)).max(50).default([]),
+});
+
+export const trainingSessionSchema = z.object({
+  sport: z.string().trim().min(2, "Enter a sport").max(80),
   trainingDurationMinutes: z
     .number({ invalid_type_error: "Training duration must be a number" })
     .min(0, "Training duration cannot be negative")
@@ -78,9 +67,6 @@ export const athleteProfileSchema = z.object({
     .int("Training frequency must be whole days")
     .min(1, "Training frequency must be at least 1 day per week")
     .max(7, "Training frequency cannot exceed 7 days per week"),
-  dietaryPreference: z.enum(["vegetarian", "non_vegetarian", "jain"], {
-    errorMap: () => ({ message: "Select a valid dietary preference" }),
-  }),
   dailyBudgetInr: z
     .number({ invalid_type_error: "Daily budget must be a number" })
     .min(80, "Daily food budget cannot be less than ₹80 in India for nutritional adequacy")
@@ -91,10 +77,42 @@ export const athleteProfileSchema = z.object({
     .min(2, "Location must be at least 2 characters")
     .max(80, "Location name too long"),
   trainingTimeOfDay: z.enum(["morning", "afternoon", "evening"]).optional(),
-  dietaryExclusions: z.array(z.string()).default([]),
+  trainingDate: z.string().date("Enter a valid training date"),
+  trainingType: z.enum(["practice", "match", "competition", "recovery", "rest_day", "other"]),
+});
+
+export const athleteProfileSchema = athletePersonalProfileSchema.extend({
+  id: z.string().optional(),
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(60).optional(),
+  sport: z.string().trim().min(2).max(80),
+  trainingDate: z.string().date().optional(),
+  trainingType: z.enum(["practice", "match", "competition", "recovery", "rest_day", "other"]).optional(),
+  trainingDurationMinutes: z
+    .number({ invalid_type_error: "Training duration must be a number" })
+    .min(0, "Training duration cannot be negative")
+    .max(360, "Daily training duration cannot exceed 360 minutes (6 hours)"),
+  trainingIntensity: z.enum(["rest", "light", "moderate", "high", "very_high"], {
+    errorMap: () => ({ message: "Select a valid training intensity" }),
+  }),
+  trainingFrequencyDaysPerWeek: z
+    .number({ invalid_type_error: "Training frequency must be a number" })
+    .int("Training frequency must be whole days")
+    .min(1, "Training frequency must be at least 1 day per week")
+    .max(7, "Training frequency cannot exceed 7 days per week"),
+  dailyBudgetInr: z
+    .number({ invalid_type_error: "Daily budget must be a number" })
+    .min(80, "Daily food budget cannot be less than ₹80 in India for nutritional adequacy")
+    .max(5000, "Daily food budget cannot exceed ₹5,000"),
+  location: z
+    .string()
+    .trim()
+    .min(2, "Location must be at least 2 characters")
+    .max(80, "Location name too long"),
+  trainingTimeOfDay: z.enum(["morning", "afternoon", "evening"]).optional(),
   measuredSweatRateInput: sweatRateMeasuredInputSchema.optional(),
 });
 
 export type ValidatedAthleteProfile = z.infer<typeof athleteProfileSchema>;
+export type ValidatedAthletePersonalProfile = z.infer<typeof athletePersonalProfileSchema>;
+export type ValidatedTrainingSession = z.infer<typeof trainingSessionSchema>;
 export type ValidatedSweatRateInput = z.infer<typeof sweatRateMeasuredInputSchema>;
-

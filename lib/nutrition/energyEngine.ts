@@ -1,6 +1,6 @@
 import { AthleteProfile } from "@/lib/types/athlete";
 import { EnergyRequirementResult, StepExplanation } from "@/lib/types/nutrition";
-import { SPORTS_REGISTRY } from "@/data/reference/sportsData";
+import { FALLBACK_SPORT_METADATA, getSportMetadata } from "@/data/reference/sportsData";
 import { NUTRITION_REFERENCE } from "@/data/reference/nutritionReference";
 
 /**
@@ -84,7 +84,7 @@ export function calculateEnergyRequirement(profile: AthleteProfile): EnergyRequi
   });
 
   // Step 3: Exercise Energy Expenditure (EEE)
-  const sportMeta = SPORTS_REGISTRY[profile.sport] || SPORTS_REGISTRY.general_athletics;
+  const sportMeta = getSportMetadata(profile.sport) || FALLBACK_SPORT_METADATA;
   const durationHours = profile.trainingDurationMinutes / 60;
   const { eeeKcal, effectiveMet } = calculateExerciseEnergyExpenditure(
     sportMeta.metValue,
@@ -133,4 +133,3 @@ export function calculateEnergyRequirement(profile: AthleteProfile): EnergyRequi
     explanations,
   };
 }
-

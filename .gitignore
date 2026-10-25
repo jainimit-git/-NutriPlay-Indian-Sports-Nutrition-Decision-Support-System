@@ -22,6 +22,9 @@ build/
 .env.production.local
 *.env.local
 
+# Local NutriPlay account and athlete-profile data
+.nutriplay-data/
+
 # Debug logs
 npm-debug.log*
 yarn-debug.log*
@@ -53,4 +56,3 @@ env/
 # Test output
 test-results/
 playwright-report/
-

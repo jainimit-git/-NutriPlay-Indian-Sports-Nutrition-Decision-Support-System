@@ -25,3 +25,4 @@ Existing mobile applications are typically Western-centric, reliant on Western d
 - Exercise expenditures use the standardized **Compendium of Physical Activities** and position-specific MET adaptations.
 - Market procurement costs reflect authentic Indian domestic indices (2024–2026).
 - All synthetic cohort experiments utilize verified realistic athlete ranges.
+

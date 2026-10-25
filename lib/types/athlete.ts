@@ -4,7 +4,7 @@
 
 export type BiologicalSex = "male" | "female";
 
-export type DietaryPreference = "vegetarian" | "non_vegetarian" | "jain";
+export type DietaryPreference = "vegetarian" | "non_vegetarian" | "vegan" | "jain";
 
 export type TrainingIntensity = "rest" | "light" | "moderate" | "high" | "very_high";
 
@@ -38,7 +38,7 @@ export interface AthleteProfile {
   sex: BiologicalSex;
   heightCm: number; // cm (120 - 230)
   weightKg: number; // kg (35 - 200)
-  sport: SportType;
+  sport: string;
   trainingDurationMinutes: number; // 0 - 360
   trainingIntensity: TrainingIntensity;
   trainingFrequencyDaysPerWeek: number; // 1 - 7
@@ -46,8 +46,32 @@ export interface AthleteProfile {
   dailyBudgetInr: number; // INR (min 80)
   location: string; // Indian city or custom
   trainingTimeOfDay?: TrainingTimeOfDay;
+  trainingDate?: string;
+  trainingType?: "practice" | "match" | "competition" | "recovery" | "rest_day" | "other";
   dietaryExclusions: string[]; // e.g., ["milk", "egg", "peanuts", "fish"]
   measuredSweatRateInput?: SweatRateMeasuredInput;
+}
+
+export interface AthletePersonalProfile {
+  name: string;
+  age: number;
+  sex: BiologicalSex;
+  heightCm: number;
+  weightKg: number;
+  dietaryPreference: DietaryPreference;
+  dietaryExclusions: string[];
+}
+
+export interface TrainingSessionInput {
+  sport: string;
+  trainingDurationMinutes: number;
+  trainingIntensity: TrainingIntensity;
+  trainingFrequencyDaysPerWeek: number;
+  dailyBudgetInr: number;
+  location: string;
+  trainingDate: string;
+  trainingType: "practice" | "match" | "competition" | "recovery" | "rest_day" | "other";
+  trainingTimeOfDay?: TrainingTimeOfDay;
 }
 
 export interface SportMetadata {
@@ -70,4 +94,3 @@ export interface SportMetadata {
     very_high: number;
   };
 }
-

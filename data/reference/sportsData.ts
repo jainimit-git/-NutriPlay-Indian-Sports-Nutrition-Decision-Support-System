@@ -6,7 +6,7 @@ import { SportMetadata, SportType } from "@/lib/types/athlete";
  * - ACSM (American College of Sports Medicine) joint position stance
  * - ICMR-NIN (National Institute of Nutrition, Hyderabad) guidelines for Indian sportspeople
  */
-export const SPORTS_REGISTRY: Record<SportType, SportMetadata> = {
+export const SPORTS_REGISTRY: Record<string, SportMetadata> = {
   cricket: {
     id: "cricket",
     label: "Cricket (All-rounder / Fast Bowling / Batting)",
@@ -229,3 +229,27 @@ export const SPORTS_REGISTRY: Record<SportType, SportMetadata> = {
   },
 };
 
+export const FALLBACK_SPORT_METADATA: SportMetadata = {
+  id: "general_athletics",
+  label: "Unlisted sport (generic estimate)",
+  category: "intermittent_team",
+  metValue: 5,
+  defaultCarbFactorGPerKg: {
+    rest: 3.5,
+    light: 4.5,
+    moderate: 6,
+    high: 7.5,
+    very_high: 9,
+  },
+  defaultProteinFactorGPerKg: {
+    rest: 1.2,
+    light: 1.4,
+    moderate: 1.6,
+    high: 1.8,
+    very_high: 2,
+  },
+};
+
+export function getSportMetadata(sport: string): SportMetadata | undefined {
+  return SPORTS_REGISTRY[sport];
+}

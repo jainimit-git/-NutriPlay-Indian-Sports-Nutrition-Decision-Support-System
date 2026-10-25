@@ -1,6 +1,6 @@
 import { AthleteProfile } from "@/lib/types/athlete";
 import { EnergyRequirementResult, MacronutrientTargets, StepExplanation } from "@/lib/types/nutrition";
-import { SPORTS_REGISTRY } from "@/data/reference/sportsData";
+import { FALLBACK_SPORT_METADATA, getSportMetadata } from "@/data/reference/sportsData";
 import { NUTRITION_REFERENCE } from "@/data/reference/nutritionReference";
 
 /**
@@ -12,7 +12,7 @@ export function calculateNutrientTargets(
   energy: EnergyRequirementResult
 ): MacronutrientTargets {
   const explanations: StepExplanation[] = [];
-  const sportMeta = SPORTS_REGISTRY[profile.sport] || SPORTS_REGISTRY.general_athletics;
+  const sportMeta = getSportMetadata(profile.sport) || FALLBACK_SPORT_METADATA;
   const weight = profile.weightKg;
   const targetCalories = energy.targetCaloriesRecommended;
 
@@ -122,4 +122,3 @@ export function calculateNutrientTargets(
     explanations,
   };
 }
-

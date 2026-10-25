@@ -28,3 +28,4 @@ Where Fat-Free Mass is estimated via validated gender-specific body fat baseline
 1. **RED-S / LEA Screen**: Flags when net energy after workout falls below 30 kcal/kg FFM.
 2. **Overtraining & Recovery Screen**: Flags athletes training 7 days per week with $\ge 90$ minutes daily duration without restorative rest intervals.
 3. **Environmental Heat Illness Screen**: Flags sessions conducted under Heat Index Danger ($\ge 41^\circ\text{C}$) or Extreme Danger ($\ge 54^\circ\text{C}$), mandating scheduled cooling breaks and isotonic hydration.
+
