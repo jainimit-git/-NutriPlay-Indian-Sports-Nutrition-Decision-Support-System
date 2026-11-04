@@ -68,18 +68,33 @@ npm install
 ---
 
 ## 9. Environment Variables
-Create a `.env.local` file from the provided template:
+Create a local environment file from the provided template (PowerShell or Command Prompt on Windows):
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+On macOS/Linux, use:
 
 ```bash
 cp .env.example .env.local
 ```
 
-Configure your environment settings (optional live weather API key):
+Account login requires a unique session-signing secret. Generate one:
+
+```bash
+node -e "console.log(require('node:crypto').randomBytes(32).toString('base64'))"
+```
+
+Paste the generated value after `NUTRIPLAY_SESSION_SECRET=` in `.env.local`. Do not commit or share this secret; `.env.local` is ignored by Git. Each deployment needs its own secret configured in its environment. See [docs/ACCOUNT_SETUP.md](docs/ACCOUNT_SETUP.md) for account storage and deployment limitations.
+
+Live weather is optional. To enable it, configure:
+
 ```env
 WEATHER_API_KEY=your_openweathermap_api_key_here
 WEATHER_API_BASE_URL=https://api.openweathermap.org/data/2.5
 ```
-*Note: If no API key is provided, the system gracefully uses the scientific Indian regional climatological baseline.*
+If no weather API key is provided, the system uses the Indian regional climatological baseline.
 
 ---
 
@@ -182,4 +197,3 @@ Automated benchmark across 10 synthetic athlete profiles against Baseline 1 (Gen
 
 ## License
 MIT License. Copyright &copy; 2026 Nimit Jain.
-
